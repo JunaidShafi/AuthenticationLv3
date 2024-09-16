@@ -68,7 +68,6 @@ app.get("/auth/google/secrets" ,passport.authenticate("google", {
   failureRedirect:"/login"
 }));
 app.get("/secrets", (req, res) => {
-  console.log(req.user);
   if (req.isAuthenticated()) {
     res.render("secrets.ejs");
   } else {
