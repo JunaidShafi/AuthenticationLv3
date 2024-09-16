@@ -45,7 +45,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login.ejs");
+  if (req.isAuthenticated()) {
+    console.log(req.isAuthenticated());
+    res.render("secrets.ejs");
+  } else {
+    res.render("login.ejs");
+  }
 });
 
 app.get("/register", (req, res) => {
